@@ -38,5 +38,7 @@ Again: this can be confusing unless you're used to thinking in terms of frontend
 
 This leads to an important understanding: in production you have only one server running, the ASP.NET server, which will *proxy* your Vue application, which your end user will interact with.
 
+## Questions? Issues?
 
+The [GitHub repo for this template is here](https://github.com/robconery/Vue.Starter). I don't have discussions enabled, but feel free to pop an issue if you like or, better yet, a PR!
 
