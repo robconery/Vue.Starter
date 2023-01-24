@@ -5,7 +5,7 @@ This is the starter template for ASP.NET and Vue, which will hopefully get you o
 To install this template, simply:
 
 ```
-dotnet new install Vue.Web.Starter::1.0.0
+dotnet new install Vue.Web.Starter::1.0.1
 ```
 
 Which will allow you to:
