@@ -3,8 +3,8 @@
   <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoDefaultExcludes>true</NoDefaultExcludes>
-    <PackageReadmeFile>content/templates/README.md</PackageReadmeFile>
-    <PackageIcon>content/templates/icon.png</PackageIcon>
+    <PackageReadmeFile>content/templates/vue/README.md</PackageReadmeFile>
+    <PackageIcon>content/templates/vue/icon.png</PackageIcon>
     <PackageType>Template</PackageType>
     <PackageVersion>1.0.1</PackageVersion>
     <PackageId>Vue.Web.Starter</PackageId>
