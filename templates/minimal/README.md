@@ -5,6 +5,16 @@ Hello and welcome to the ASP.NET Vue Starter Template with ASP.NET Minimal API a
  - A starter ASP.NET Minimal API in `/server`. It has been setup to serve...
  - A starter Vue 3 app generated using `npm init vue@latest` in the `/client` directory.
 
+Before you get started, however, be sure to navigate into the `/client` directory and:
+
+```
+npm init
+```
+
+This will pull down the packages you need for Vue to run.
+
+## Running Things
+
 You can run these applications independently or together, however you need. To run the server, navigate to the server directory and run:
 
 ```
@@ -19,7 +29,11 @@ npm run dev
 
 These projects are (currently) set up to be developed separately and, therefore, you run them independently with the above commands during development.
 
-When you're ready to test them together, you can run `npm build` from the `/client` directory, which will build the Vue application and place the output in the `/wwwroot` directory
+When you're ready to test them together, you can run `npm run build` from the `/client` directory, which will build the Vue application and place the output in the `/server/wwwroot` directory.
+
+If you want to do both things at once, feel free to run `source ./script/run.sh` and it will build the Vue app and run the ASP.NET server, which will serve the app.
+
+Note that this script uses bash. I'm leaning on @jongalloway to create a Powershell one.
 
 ## Using the Scripts
 
