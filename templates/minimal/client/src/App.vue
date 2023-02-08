@@ -9,7 +9,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
     <div class="wrapper">
       <HelloWorld msg="The Vue Starter is Running" />
-
+  
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
