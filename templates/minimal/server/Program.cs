@@ -1,6 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
-
+builder.Services.AddDbContext<Contoso.Data.DB>(options => 
+  options.UseSqlite(builder.Configuration.GetConnectionString("ContosoDev"))
+);
 //this serves our Vue file
 //app.UseDefaultFiles().UseStaticFiles();
 app.UseStaticFiles();
