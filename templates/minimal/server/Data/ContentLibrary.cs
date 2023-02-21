@@ -13,17 +13,23 @@ namespace Contoso.Data;
 public class ContentLibrary
 {
     public IList<Document> Documents { get; set; } = new List<Document>();
+    public string Library { get; set; } = "../../../Content/";
     public ContentLibrary()
     {
 
     }
+    public ContentLibrary(string library)
+    {
+      this.Library = library;
+    }
     public ContentLibrary Load(){
       var result = new List<Document>();
       //HACK: figure out how to make this less hard-codey crap
-      foreach (string file in Directory.EnumerateFiles("../../../Content/", "*.md", SearchOption.AllDirectories))
+      foreach (string file in Directory.EnumerateFiles(this.Library, "*.md", SearchOption.AllDirectories))
       {
           //
         var text = File.ReadAllText(file);
+        
         //var newDoc = new Document(text);
         Document doc;
         var yamler = new DeserializerBuilder().IgnoreUnmatchedProperties().Build();
@@ -59,6 +65,11 @@ public class ContentLibrary
 
         doc.HTML = writer.ToString();
         doc.CreatedAt = DateTime.Now;
+        doc.Directory = Directory.GetParent(file).Name;
+        doc.Slug = Path.GetFileNameWithoutExtension(file);
+        
+        //add it!
+        this.Documents.Add(doc);
       }
       return this;
     }

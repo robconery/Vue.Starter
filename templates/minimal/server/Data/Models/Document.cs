@@ -11,6 +11,7 @@ namespace Contoso.Data.Models
     {
       
     }
+    public string Directory { get; set; }
     public string Path { get; set; }
     public string Slug { get; set; }
     public DateTime CreatedAt { get; set; }
@@ -19,9 +20,21 @@ namespace Contoso.Data.Models
 
     [YamlMember(Alias = "title")]
     public string Title{ get; set; }
+    
+    [YamlMember(Alias = "index")]
+    public int Index{ get; set; }
+    
+    [YamlMember(Alias = "icon")]
+    public string Icon{ get; set; }
 
     [YamlMember(Alias = "image")]
     public string Image { get; set; }
+
+    [YamlMember(Alias = "category")]
+    public string Category { get; set; }
+
+    [YamlMember(Alias = "tags")]
+    public string[] Tags { get; set; }
 
     [YamlMember(Alias = "lede")]
     public string Lede { get; set; }
