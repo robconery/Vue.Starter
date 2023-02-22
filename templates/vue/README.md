@@ -1,23 +1,43 @@
 # The ASP.NET Vue Starter
 
-Hello and welcome to the ASP.NET Vue Starter Template with ASP.NET and Vue 3.0. The only things this template contains are:
+Hello and welcome to the ASP.NET Vue Starter Template with ASP.NET Minimal API and Vue 3.0. The only things this template contains are:
 
- - A starter ASP.NET web application, with no changes
- - A starter Vue 3 app generated using `npm init vue@latest`, no changes
- - Orchestration for hooking the two applications together, which you can see in `Program.cs`.
+ - A starter ASP.NET Minimal API in `/server`. It has been setup to serve...
+ - A starter Vue 3 app generated using `npm init vue@latest` in the `/client` directory.
 
-## Run the Application
+Before you get started, however, be sure to navigate into the `/client` directory and:
 
-To run the application, simply use `dotnet run` which will get things started. Alternatively, you can use `dotnet watch` which will watch your ASP.NET application in the background and restart things when the code changes.
+```
+npm init
+```
 
-It's important to note that in development you have **two separate web applications running**:
+This will pull down the packages you need for Vue to run.
 
- - An ASP.NET web application with Controllers and Razor Pages, running on port 8080
- - A Vue Application running in development mode with a Node web server, running on port 8088
+## Running Things
 
-This can be confusing, but that's how Vue works in development and, you'll find, it's very useful to think of these things as separate applications entirely. The Vue app is your front end, the ASP app is your API which serves data.
+You can run these applications independently or together, however you need. To run the server, navigate to the server directory and run:
 
-The Vue web server will auto-reload and log all the interactions with your Vue application, and you can build your app like you would any other Vue app.
+```
+dotnet watch
+```
+
+To run the client, navigate to the `/client` directory and run:
+
+```
+npm run dev
+```
+
+These projects are (currently) set up to be developed separately and, therefore, you run them independently with the above commands during development.
+
+When you're ready to test them together, you can run `npm run build` from the `/client` directory, which will build the Vue application and place the output in the `/server/wwwroot` directory.
+
+If you want to do both things at once, feel free to run `source ./script/run.sh` and it will build the Vue app and run the ASP.NET server, which will serve the app.
+
+Note that this script uses bash. I'm leaning on @jongalloway to create a Powershell one.
+
+## Using the Scripts
+
+For convenience, there is a set of shell scripts in the `/scripts` directory to help you with common tasks, such as building and running the application using .NET, setting up Azure and also deployment.
 
 ## Deployment
 
@@ -34,9 +54,8 @@ Running that will trigger the Vue build process (using Vite), which will optimiz
  - Minification of assets, including CSS and JavaScript
  - Code-splitting or "chunking" your application code based on routes
 
-Again: this can be confusing unless you're used to thinking in terms of frontend and backend. When building an application like this, it's common to put *everything* the user sees int the Vue application. All your pages, images and so on are served by your frontend single page app.
+It's important that this step is run prior to deployment, otherwise you won't see your assets. For convenience, we've setup a script for you but it might also be worth your while to 
 
-This leads to an important understanding: in production you have only one server running, the ASP.NET server, which will *proxy* your Vue application, which your end user will interact with.
 
 ## Questions? Issues?
 

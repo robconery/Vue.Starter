@@ -9,6 +9,7 @@ using YamlDotNet.Core.Events;
 
 namespace Vue.Starter.Data;
 // ...
+// This is a simple in-memory Markdown "server", if you will.
 
 public class ContentLibrary
 {
