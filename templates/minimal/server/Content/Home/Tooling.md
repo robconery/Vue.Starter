@@ -1,6 +1,6 @@
 ---
 title: Tooling
-icon: file
+icon: fa-solid fa-screwdriver-wrench
 index: 2
 ---
 

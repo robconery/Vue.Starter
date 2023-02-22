@@ -1,6 +1,6 @@
 ---
 title: Community
-icon: book
+icon: fa-solid fa-users-line
 index: 4
 ---
 

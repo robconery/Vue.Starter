@@ -1,6 +1,6 @@
 ---
 title: Minimal API
-icon: book
+icon: fa-solid fa-rocket
 index: 6
 ---
 
