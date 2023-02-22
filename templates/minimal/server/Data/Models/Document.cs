@@ -1,7 +1,7 @@
 
 using YamlDotNet.Serialization;
 
-namespace Contoso.Data.Models
+namespace Vue.Starter.Data.Models
 {
 
   public class Document
@@ -20,6 +20,9 @@ namespace Contoso.Data.Models
 
     [YamlMember(Alias = "title")]
     public string Title{ get; set; }
+
+    [YamlMember(Alias = "summary")]
+    public string Summary{ get; set; }
     
     [YamlMember(Alias = "index")]
     public int Index{ get; set; }

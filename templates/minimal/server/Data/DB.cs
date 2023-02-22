@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Contoso.Data
+namespace Vue.Starter.Data
 {
     public class DB : DbContext
     {

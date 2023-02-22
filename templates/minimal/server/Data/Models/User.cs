@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Contoso.Data.Models
+namespace Vue.Starter.Data.Models
 {
     public class User
     {

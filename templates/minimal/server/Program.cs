@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("ContosoDev");
-builder.Services.AddDbContext<Contoso.Data.DB>(options => 
+builder.Services.AddDbContext<Vue.Starter.Data.DB>(options => 
   options.UseSqlite(connectionString)
 );
 //this serves our Vue file
@@ -13,7 +13,8 @@ app.UseStaticFiles();
 app.MapFallbackToFile("index.html");
 
 //routes
-Vue.Starter.Routes.Home.MapRoutes(app);
+Vue.Starter.Api.Home.MapRoutes(app);
+Vue.Starter.Api.Content.MapRoutes(app);
 
 app.Run();
 

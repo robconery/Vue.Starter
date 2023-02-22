@@ -1,6 +1,7 @@
 ---
 title: A Test Document
 icon: book
+summary: This is a summary that will be used by search
 index: 1
 image: image/image.png
 category: tests

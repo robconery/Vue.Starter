@@ -1,6 +1,6 @@
 using Xunit;
-using Contoso.Data;
-using Contoso.Data.Models;
+using Vue.Starter.Data;
+using Vue.Starter.Data.Models;
 namespace Contoso.Tests;
 
 public class ContentTests {
@@ -62,6 +62,17 @@ public class ContentTests {
   public void Doc_has_three_tags()
   {
     Assert.Equal(3,_doc.Tags.Count());
+  }
+  [Fact]
+  public void Doc_has_summary()
+  {
+    Assert.True(_doc.Summary.Contains("This is a summary"));
+  }
+  [Fact]
+  public void Search_returns_our_document()
+  {
+    var found = _lib.Search("summary");
+    Assert.Equal(1, found.Count());
   }
 
 }

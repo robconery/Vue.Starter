@@ -1,19 +1,19 @@
 using Markdig;
 using Markdig.Parsers;
 using Markdig.Renderers;
-using Contoso.Data.Models;
+using Vue.Starter.Data.Models;
 using YamlDotNet.Serialization;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
 
-namespace Contoso.Data;
+namespace Vue.Starter.Data;
 // ...
 
 public class ContentLibrary
 {
     public IList<Document> Documents { get; set; } = new List<Document>();
-    public string Library { get; set; } = "../../../Content/";
+    public string Library { get; set; } = "./Content/";
     public ContentLibrary()
     {
 
@@ -21,6 +21,14 @@ public class ContentLibrary
     public ContentLibrary(string library)
     {
       this.Library = library;
+    }
+    public IEnumerable<Document> Search(string term){
+      if(term.Count() < 3){
+        //HACK: I hate throwing like this but ...
+        throw new InvalidOperationException("The term should be more than three characters");
+      }
+      //HACK: Fuzzy search is goofy but it works
+      return this.Documents.Where(d => d.Summary.ToLower().Contains(term.ToLower()));
     }
     public ContentLibrary Load(){
       var result = new List<Document>();
