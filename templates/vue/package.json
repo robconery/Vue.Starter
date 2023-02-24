@@ -4,12 +4,9 @@
   "description": "Hello and welcome to the ASP.NET Vue Starter Template with ASP.NET Minimal API and Vue 3.0. The only things this template contains are:",
   "main": "index.js",
   "scripts": {
-    "dev": "source ./scripts/dev.ps1"
+    "dev": "dotnet watch --project ./server"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@fortawesome/vue-fontawesome": "^3.0.3"
-  }
+  "license": "ISC"
 }

@@ -15,7 +15,12 @@
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
     <Compile Remove="Tests\*Tests.cs" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Watch 
+      Include="**\*.cs;**\*.js;**\*.json;**\*.html;**.*.md"
+      Exclude="node_modules\**\*;wwwroot\**\*;" 
+    />
+  </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' != 'Release'">
     <PackageReference Include="Markdig" Version="0.30.4" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />

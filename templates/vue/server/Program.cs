@@ -21,7 +21,8 @@ app.UseCors(builder => builder
  .AllowAnyMethod()
  .AllowAnyHeader()
 );
-//routes
+
+//load the routes
 Vue.Starter.Api.Home.MapRoutes(app);
 Vue.Starter.Api.Content.MapRoutes(app);
 

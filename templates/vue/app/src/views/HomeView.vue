@@ -1,9 +1,27 @@
-<script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+<script setup>
+import Hero from "@/components/Blocks/Hero.vue";
+import Resources from "@/components/Blocks/Features.vue";
+import TwelveEighty from "@/components/Blocks/1280.vue";
+import { useContentStore } from '@/stores/content'
+
+const {getDocuments, documents} = useContentStore();
+await getDocuments("home");
+
+let features = [
+  documents.tailwind,
+  documents.minimalapi,
+  documents.ecosystem
+];
+
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <TwelveEighty>
+    <section class="text-gray-600 body-font py-24">
+      <Hero :doc="documents.hero"></Hero>
+    </section>
+    <section class="text-gray-600 body-font">
+      <Resources :items="features"></Resources>
+    </section>
+  </TwelveEighty>
 </template>

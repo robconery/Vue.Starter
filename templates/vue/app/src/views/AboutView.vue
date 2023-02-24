@@ -1,15 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <TwelveEighty class="mt-12">
+    <Hero :doc="dummy" />
+  </TwelveEighty>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script setup>
+import TwelveEighty from "@/components/Blocks/1280.vue";
+import Hero from "@/components/Blocks/Hero.vue";
+import { useDummyStore } from '@/stores/dummy';
+
+//helper library for working with comoponents
+const {dummy, getDummy} = useDummyStore();
+getDummy();
+
+</script>
