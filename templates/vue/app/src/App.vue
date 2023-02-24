@@ -1,15 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import NavGlobal from "./components/Nav/Global.vue";
+import Head from "./components/Nav/Global.vue";
+import Footer from "./components/Nav/Footer.vue";
 </script>
 
 <template>
-  <NavGlobal></NavGlobal>
+  <Head />
 
-    <Suspense>
-      <RouterView />
-    </Suspense>
-
+  <Suspense>
+    <RouterView />
+  </Suspense>
+  
+  <Footer class="mt-24" />
 </template>
 
 <style scoped>
