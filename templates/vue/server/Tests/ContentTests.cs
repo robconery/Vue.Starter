@@ -69,9 +69,9 @@ public class ContentTests {
     Assert.True(_doc.Summary.Contains("This is a summary"));
   }
   [Fact]
-  public void Search_returns_our_document()
+  public void FuzzySearch_returns_our_document()
   {
-    var found = _lib.Search("summary");
+    var found = _lib.FuzzySearch("summary");
     Assert.Equal(1, found.Count());
   }
 

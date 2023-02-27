@@ -15,29 +15,38 @@ This will pull down the packages you need for Vue to run.
 
 ## Running Things
 
-You can run these applications independently or together, however you need. To run the server, navigate to the server directory and run:
-
-```
-dotnet watch
-```
-
-To run the client, navigate to the `/client` directory and run:
+To get up and running for development, you can run this right from the root:
 
 ```
 npm run dev
 ```
 
-These projects are (currently) set up to be developed separately and, therefore, you run them independently with the above commands during development.
+If you only want to do Vue work you can run `npm run dev` in the `/client` directory but do keep in mind the backend API won't be running.
 
-When you're ready to test them together, you can run `npm run build` from the `/client` directory, which will build the Vue application and place the output in the `/server/wwwroot` directory.
+## Up and Running
 
-If you want to do both things at once, feel free to run `source ./script/run.sh` and it will build the Vue app and run the ASP.NET server, which will serve the app.
+To get you started quickly we've integrated Tailwind CSS, which is quickly becoming the default CSS library for projects such as Rails and Phoenix. If you don't know Tailwind, it can be a little intimidating at first but if you spend just 30 minutes on the basics, it will change the way you do things.
 
-Note that this script uses bash. I'm leaning on @jongalloway to create a Powershell one.
+To find out more, you can [head to the docs](https://tailwindcss.com/docs/installation).
 
-## Using the Scripts
+### Starter Components
 
-For convenience, there is a set of shell scripts in the `/scripts` directory to help you with common tasks, such as building and running the application using .NET, setting up Azure and also deployment.
+We've added a few starter components for you in `/client/src/components` which were built using the elements from [Tailblocks](https://tailblocks.cc/), a free, open-source block library for Tailwind.
+
+## Simple CMS API
+
+We love Markdown and we love using it with Vue. We also love the way Vue pushes you away from hardcoding data and markup in your components so, to that end, we've created a super simple CMS system for you to use via the Minimal API which is based on [Nuxt Content](https://content.nuxtjs.org/).
+
+The idea is simple: your documents are loaded at startup, parsed and added to a `Document` collection. These documents can then be queried using LINQ via the API. Have a look in the `/Content` directory to see the documents.
+
+## Minimal API
+
+[ASP.NET Minimal API](https://minimal-apis.github.io/) is a new effort from Microsoft's ASP.NET team to help you rapidly build your application:
+
+> Rapidly move from idea to a functioning application. All the features of C# web applications without the ceremony.
+
+As you'll hopefully see, Minimal API *feels* like lightweight web frameworks in other platforms, such as Flask (Python), Sinatra (Ruby) and Express (Node). Lightweight, easy to use and blazingly fast.
+
 
 ## Deployment
 
@@ -53,9 +62,9 @@ Running that will trigger the Vue build process (using Vite), which will optimiz
 
  - Minification of assets, including CSS and JavaScript
  - Code-splitting or "chunking" your application code based on routes
+ - Adding the built files to `/wwwroot` where it will be served as a static application, backed by your Minimal API
 
-It's important that this step is run prior to deployment, otherwise you won't see your assets. For convenience, we've setup a script for you but it might also be worth your while to 
-
+It's important that this step is run prior to deployment, otherwise you won't see your assets.
 
 ## Questions? Issues?
 

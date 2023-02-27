@@ -1,11 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
-
-var connectionString = builder.Configuration.GetConnectionString("ContosoDev");
-builder.Services.AddDbContext<Vue.Starter.Data.DB>(options => 
-  options.UseSqlite(connectionString)
-);
 builder.Services.AddCors();
  
  
@@ -23,7 +16,6 @@ app.UseCors(builder => builder
 );
 
 //load the routes
-Vue.Starter.Api.Home.MapRoutes(app);
 Vue.Starter.Api.Content.MapRoutes(app);
 
 app.Run();

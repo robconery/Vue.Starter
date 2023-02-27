@@ -14,32 +14,39 @@ namespace Vue.Starter.Data;
 public class ContentLibrary
 {
     public IList<Document> Documents { get; set; } = new List<Document>();
-    public string Library { get; set; } = "./Content/";
+    
+    //The location of the document directory on disk, releative to the root
+    public string Library { get; set; }
+    
     public ContentLibrary()
     {
-
+      this.Library = "./Content/";
     }
+    
+    //override the default library location
     public ContentLibrary(string library)
     {
       this.Library = library;
     }
-    public IEnumerable<Document> Search(string term){
+    
+    //Only runs a fuzzy wildcard on summary
+    public IEnumerable<Document> FuzzySearch(string term){
       if(term.Count() < 3){
-        //HACK: I hate throwing like this but ...
         throw new InvalidOperationException("The term should be more than three characters");
       }
-      //HACK: Fuzzy search is goofy but it works
       return this.Documents.Where(d => d.Summary.ToLower().Contains(term.ToLower()));
     }
+
+    //Reads the documents on disk, parses and loads the IList<Document>
     public ContentLibrary Load(){
       var result = new List<Document>();
-      //HACK: figure out how to make this less hard-codey crap
+
+      //HACK: figure out how to make this less hard-codey
       foreach (string file in Directory.EnumerateFiles(this.Library, "*.md", SearchOption.AllDirectories))
       {
-          //
+        
         var text = File.ReadAllText(file);
         
-        //var newDoc = new Document(text);
         Document doc;
         var yamler = new DeserializerBuilder().IgnoreUnmatchedProperties().Build();
 
