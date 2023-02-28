@@ -14,8 +14,8 @@ export default defineConfig({
   server:{
     port: 3000
   },
-  build: {
-    outDir: "../server/wwwroot/",
-    emptyOutDir: true
-  }
+  // build: {
+  //   outDir: "../server/wwwroot/",
+  //   emptyOutDir: true
+  // }
 })

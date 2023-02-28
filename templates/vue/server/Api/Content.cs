@@ -3,11 +3,15 @@ using Vue.Starter.Data;
 
 public static class Content{
 
-  public static void MapRoutes(IEndpointRouteBuilder app)
+  public static void MapRoutes(WebApplication app)
   {
+    //get the root path
+    
+    var libPath = Path.Combine(app.Environment.WebRootPath, "Content");
+    Console.WriteLine(libPath);
     //just need to load this once, here. If you use this in other 
     //routes, consider turning it into an injectable service
-    var lib = new ContentLibrary().Load();
+    var lib = new ContentLibrary(libPath).Load();
 
 
     app.MapGet("api/about/", () => lib.Documents.First(d => d.Slug == "About"));
@@ -17,7 +21,10 @@ public static class Content{
     //you can separate these into their own methods if you need to
     //the / route launches the SPA Proxy so you won't see it
     app.MapGet("api/content/{dir}", (string dir) => {
-      Console.WriteLine("Incoming Request", dir);
+
+      //figure out where the content directory is
+
+      // Console.WriteLine("Incoming Request", dir);
       var docs = lib.Documents.Where(d => d.Directory.ToLower() == dir.ToLower());
       return docs;
     });

@@ -66,6 +66,15 @@ Running that will trigger the Vue build process (using Vite), which will optimiz
 
 It's important that this step is run prior to deployment, otherwise you won't see your assets.
 
+## Azure Deployment
+
+In the `/server/scripts` directory you'll see two script files:
+
+ - `azure.sh` is the script file that will help you create the resource on Azure that you need. It will also create a...
+ - `deploy.sh` file, which will push your site up using a direct zip push.
+
+In the long term you'll obviously want to use a more structured deployment process, but to just "get something up now" you can run `azure.sh` (assuming you have the Azure CLI `az` and are logged in).
+
 ## Questions? Issues?
 
 The [GitHub repo for this template is here](https://github.com/robconery/Vue.Starter). I don't have discussions enabled, but feel free to pop an issue if you like or, better yet, a PR!

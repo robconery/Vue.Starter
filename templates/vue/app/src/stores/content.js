@@ -4,7 +4,8 @@ export const useContentStore = defineStore('content', {
   state(){
     return {
       documents: {},
-      document: null
+      document: null,
+      endpoint: location.hostname.indexOf("localhost") >= 0 ? "http://localhost:8000/api/content" : "/api/content"
     }
   },
   actions:{
@@ -13,7 +14,8 @@ export const useContentStore = defineStore('content', {
       try{
         this.documents.length = 0;
         //TODO: Change this for production
-        const res = await fetch(`http://localhost:8000/api/content/${path}`);
+        const res = await fetch(`${this.endpoint}/${path}`);
+
         const docs = await res.json();
         //keep things reactive
         docs.forEach(d => {

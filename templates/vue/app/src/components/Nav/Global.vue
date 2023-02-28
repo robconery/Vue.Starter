@@ -1,7 +1,7 @@
 <template>
   <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium text-gray-900 mb-4 md:mb-0">
+    <a class="flex title-font font-medium text-gray-900 mb-4 md:mb-0" href="/">
       <img src="/img/minics.png" alt="ASP.NET Minimal API" style="max-height:30px"/>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -17,6 +17,7 @@
 </template>
 <script setup>
 const links = [
-  {name: "About", url: "/about"}
+  {name: "GitHub", url: "https://github.com/robconery/Vue.Starter"},
+  {name: "About", url: "/about"},
 ];
 </script>
