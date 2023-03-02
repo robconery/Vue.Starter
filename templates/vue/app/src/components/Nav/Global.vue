@@ -5,7 +5,7 @@
       <img src="/img/minics.png" alt="ASP.NET Minimal API" style="max-height:30px"/>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5 hover:text-gray-900" v-for="(link,idx) of links" :key="idx" :href="link.url">{{ link.name }}</a>
+      <a class="mr-5 hover:text-gray-900" v-for="(link,idx) of topNav" :key="idx" :href="link.url">{{ link.name }}</a>
     </nav>
     <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Button
       <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
@@ -16,8 +16,6 @@
 </header>
 </template>
 <script setup>
-const links = [
-  {name: "GitHub", url: "https://github.com/robconery/Vue.Starter"},
-  {name: "About", url: "/about"},
-];
+import {useSiteStore} from "@/stores/site.js";
+const {topNav} = useSiteStore();
 </script>

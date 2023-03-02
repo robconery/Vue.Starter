@@ -28,7 +28,7 @@ lerna-debug.log*
 .env
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-app.zip
+app.zip 
 # Mono auto generated files
 mono_crash.*
 dist/

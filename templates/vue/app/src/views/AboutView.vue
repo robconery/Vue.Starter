@@ -1,17 +1,20 @@
 <template>
   <TwelveEighty class="mt-12">
-    <Hero :doc="doc" />
+    <Hero :doc="dummyDocument" />
   </TwelveEighty>
 </template>
 
 <script setup>
 import TwelveEighty from "@/components/Blocks/1280.vue";
 import Hero from "@/components/Blocks/Hero.vue";
+import { useContentStore } from '@/stores/content'
+import {useSeo} from "@/composables/seo";
 
-const doc = {
-  title: "Lorem Ipsum",
-  html: "Velit tempor ea laboris velit anim ad exercitation do qui veniam. In anim laborum qui duis ullamco sit reprehenderit adipisicing ullamco reprehenderit dolore dolore. Duis veniam ullamco commodo reprehenderit laboris sit. Et incididunt ea magna excepteur ullamco dolore culpa in. Deserunt minim voluptate culpa Lorem nulla in velit.",
-  image: `https://dummyimage.com/540x460`,
-  link: "#"
-};
+const {dummyDocument} = useContentStore();
+
+useSeo({
+  title: "About",
+  description: "This is the About Page"
+});
+
 </script>

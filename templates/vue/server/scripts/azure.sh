@@ -59,13 +59,6 @@ az webapp log config --application-logging filesystem \
                     --name $APPNAME \
                     --resource-group $RG
 
-# echo "An alias for setting your domain (when you're ready) has been added to your .env"
-# echo "To create a domain, you need to set a CNAME pointed to $APPNAME.azurewebsites.net"
-# echo "For more information you can have a look here: "
-# echo "https://docs.microsoft.com/en-us/azure/app-service/web-sites-traffic-manager-custom-domain-name?WT.mc_id=webapp-azx-robcon"
-echo "alias setdomain='az webapp config hostname add --webapp-name $APPNAME --resource-group $RG --hostname [YOUR DOMAIN]'" >> scripts/.env
-
-
 echo "Adding logs alias to .env. Invoking this will allow you to see the application logs realtime-ish."
 #set an alias for convenience - add to .env
 echo "alias logs='az webapp log tail -n $APPNAME -g $RG'" >> scripts/.env

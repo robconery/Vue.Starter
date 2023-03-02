@@ -9,6 +9,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@vueuse/head": "^1.1.15",
     "pinia": "^2.0.26",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"

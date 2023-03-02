@@ -3,17 +3,9 @@ using Vue.Starter.Data;
 
 public static class Content{
 
-  public static void MapRoutes(WebApplication app)
+  public static void MapRoutes(IEndpointRouteBuilder app, ContentLibrary lib)
   {
-    //get the root path
-    
-    var libPath = Path.Combine(app.Environment.WebRootPath, "Content");
-    Console.WriteLine(libPath);
-    //just need to load this once, here. If you use this in other 
-    //routes, consider turning it into an injectable service
-    var lib = new ContentLibrary(libPath).Load();
-
-
+   
     app.MapGet("api/about/", () => lib.Documents.First(d => d.Slug == "About"));
     app.MapGet("api/terms/", () => lib.Documents.First(d => d.Slug == "Terms"));
     app.MapGet("api/privacy/", () => lib.Documents.First(d => d.Slug == "Privacy"));

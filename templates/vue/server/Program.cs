@@ -1,3 +1,5 @@
+using Vue.Starter.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
  
@@ -8,6 +10,9 @@ var app = builder.Build();
 app.UseStaticFiles();
 app.MapFallbackToFile("index.html");
 
+
+var libPath = Path.Combine(app.Environment.WebRootPath, "Content");
+var contentLibrary = new ContentLibrary(libPath).Load();
 //lock this down as needed
 app.UseCors(builder => builder
  .AllowAnyOrigin()
@@ -16,7 +21,7 @@ app.UseCors(builder => builder
 );
 
 //load the routes
-Vue.Starter.Api.Content.MapRoutes(app);
+Vue.Starter.Api.Content.MapRoutes(app, contentLibrary);
 
 app.Run();
 
