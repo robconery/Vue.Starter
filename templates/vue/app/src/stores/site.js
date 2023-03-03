@@ -6,7 +6,7 @@ export const useSiteStore = defineStore('site', {
       topNav: [
         {name: "Home", url: "/"},
         {name: "GitHub", url: "https://github.com/robconery/Vue.Starter"},
-        {name: "About", url: "/about"},
+        {name: "About", url: "/about/"},
       ],
       social: [
         {name: "Mastodon", url: "https://hachyderm.io/@robconery", icon: "fa fa-mastodon"},
@@ -42,4 +42,9 @@ export const useSiteStore = defineStore('site', {
       }
     }
   },
+  getters : {
+    contentEndpoint(){
+     return location.hostname.indexOf("localhost") >=0 ? "http://localhost:8000/api/content" : "/api/content"
+    }
+  }
 });

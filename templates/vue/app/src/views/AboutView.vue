@@ -13,7 +13,7 @@ import {useSeo} from "@/composables/seo";
 const {dummyDocument} = useContentStore();
 
 useSeo({
-  title: "About",
+  title: "My About Page",
   description: "This is the About Page"
 });
 

@@ -6,6 +6,7 @@ builder.Services.AddCors();
  
 //this serves our Vue file
 //app.UseDefaultFiles().UseStaticFiles();
+//here's a comment to unstkick thing
 var app = builder.Build();
 app.UseStaticFiles();
 app.MapFallbackToFile("index.html");

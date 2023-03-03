@@ -1,7 +1,12 @@
 
+# Delete all the artifacts to ensure no caching
 rm scripts/app.zip
-dotnet publish
+rm -R bin/Debug
+#rm -R bin/Release
 
+#build the API
+dotnet publish #if you just want debug
+#dotnet publish --configuration release #for release
 
 cd bin/Debug/net7.0/publish/
 zip -r app.zip . -q
