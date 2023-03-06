@@ -1,6 +1,9 @@
+DEPLOY="./Deployment/azure/zip.sh"
+APP_SERVICE="./Deployment/Azure/app_service.sh"
+
 zip:
-	source Deployment/Azure/zip.sh
+	source $(DEPLOY)
 
 app_service:
-	source Deployment/Azure/app_service.sh
+	source $(APP_SERVICE)
 

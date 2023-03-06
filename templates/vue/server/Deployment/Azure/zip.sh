@@ -1,16 +1,14 @@
 
 # Delete all the artifacts to ensure no caching
-rm -R bin/Debug
 rm -R bin/Release 
 rm ./Deployment/Azure/deploy.zip
 
 #build the API
-dotnet publish #if you just want debug
-#dotnet publish --configuration release #for release
+dotnet publish --configuration Release #for release
 
 # navigating to directory to preserve file structure
 # without recreating it entirely
-cd bin/Debug/net7.0/publish/
+cd bin/Release/net7.0/publish/
 zip -r ../../../../Deployment/Azure/deploy.zip . -q
 
 cd -
