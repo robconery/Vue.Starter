@@ -64,12 +64,11 @@ echo "Adding logs alias to .env. Invoking this will allow you to see the applica
 echo "alias logs='az webapp log tail -n $APPNAME -g $RG'" >> scripts/.env
 
 echo "rm ./Deployment/Azure/deploy.zip" >> scripts/deploy.sh
-echo "rm -R bin/Debug" >> scripts/deploy.sh
 echo "rm -R bin/Release" >> scripts/deploy.sh
-echo "dotnet publish" >> scripts/deploy.sh
+echo "dotnet publish --configuration Release" >> scripts/deploy.sh
 
 
-echo "cd bin/Debug/net7.0/publish/" >> scripts/deploy.sh
+echo "cd bin/Release/net7.0/publish/" >> scripts/deploy.sh
 echo "zip -r ../../../../Deployment/Azure/deploy.zip . -q"  >> scripts/deploy.sh
 
 echo "az webapp deployment source config-zip --resource-group vue-starter --name $APPNAME --src ./Deployment/Azure/deploy.zip" >> scripts/deploy.sh
