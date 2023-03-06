@@ -32,7 +32,7 @@ echo "LOCATION=$LOCATION" >> scripts/.env
 
 echo "Creating a resource group"
 
-#this can be run safely even 
+#this can be run safely even if the group exists
 az group create -n $RG -l $LOCATION
 
 echo "Creating AppService Plan"
@@ -63,12 +63,16 @@ echo "Adding logs alias to .env. Invoking this will allow you to see the applica
 #set an alias for convenience - add to .env
 echo "alias logs='az webapp log tail -n $APPNAME -g $RG'" >> scripts/.env
 
-echo "rm scripts/app.zip" >> scripts/deploy.sh
+echo "rm ./Deployment/Azure/deploy.zip" >> scripts/deploy.sh
+echo "rm -R bin/Debug" >> scripts/deploy.sh
+echo "rm -R bin/Release" >> scripts/deploy.sh
 echo "dotnet publish" >> scripts/deploy.sh
+
+
 echo "cd bin/Debug/net7.0/publish/" >> scripts/deploy.sh
-echo "zip -r app.zip ." >> scripts/deploy.sh
-echo "mv app.zip ../../../../scripts/" >> scripts/deploy.sh
-echo "cd ../../../../" >> scripts/deploy.sh
+echo "zip -r ../../../../Deployment/Azure/deploy.zip . -q"  >> scripts/deploy.sh
+
+echo "az webapp deployment source config-zip --resource-group vue-starter --name $APPNAME --src ./Deployment/Azure/deploy.zip" >> scripts/deploy.sh
 
 echo "open https://$APPNAME.azurewebsites.net" >> scripts/deploy.sh
 
