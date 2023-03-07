@@ -1,6 +1,8 @@
-# app2
+# The ASP.NET/Vue Client Application
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help get you started developing with Vue 3, Vite and ASP.NET. You can run this application in isolation (from the API) using `npm run dev` in this directory.
+
+You can run it alongside the API if you run `npm run dev` in the root.
 
 ## Recommended IDE Setup
 
@@ -22,27 +24,14 @@ npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Build and Deployment
 
-```sh
-npm run build
-```
+The ASP.NET Minimal API project has build settings configured to build your client app for production when you run `dotnet publish` or `dotnet build`. This client app will be compiled and the output in `/dist` will be copied over to `wwwroot` of the API.
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+Deployment scripts are setup for you in `/Deployment` and come preconfigured for Azure deployment or Docker deployment.
 
-```sh
-# Install browsers for the first run
-npx playwright install
+## Questions? Issues?
 
-# When testing on CI, must build the project first
-npm run build
+Please visit the GitHub repo if you have any questions or concerns. As always, we would love an Issue report if you've found a bug or, better yet, a PR with a fix! 
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+Issue first, please, so we can be sure the PR will fit.

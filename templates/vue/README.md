@@ -3,9 +3,9 @@
 Hello and welcome to the ASP.NET Vue Starter Template with ASP.NET Minimal API and Vue 3.0. The only things this template contains are:
 
  - A starter ASP.NET Minimal API in `/server`. It has been setup to serve...
- - A starter Vue 3 app generated using `npm init vue@latest` in the `/client` directory.
+ - A starter Vue 3 app generated using `npm init vue@latest` in the `/app` directory.
 
-Before you get started, however, be sure to navigate into the `/client` directory and:
+Before you get started, however, be sure to navigate into the `/app` directory and:
 
 ```
 npm init
@@ -21,7 +21,7 @@ To get up and running for development, you can run this right from the root:
 npm run dev
 ```
 
-If you only want to do Vue work you can run `npm run dev` in the `/client` directory but do keep in mind the backend API won't be running.
+If you only want to do Vue work you can run `npm run dev` in the `/app` directory but do keep in mind the backend API won't be running.
 
 ## Up and Running
 
@@ -31,7 +31,7 @@ To find out more, you can [head to the docs](https://tailwindcss.com/docs/instal
 
 ### Starter Components
 
-We've added a few starter components for you in `/client/src/components` which were built using the elements from [Tailblocks](https://tailblocks.cc/), a free, open-source block library for Tailwind.
+We've added a few starter components for you in `/app/src/components` which were built using the elements from [Tailblocks](https://tailblocks.cc/), a free, open-source block library for Tailwind.
 
 ## Simple CMS API
 
@@ -68,12 +68,33 @@ It's important that this step is run prior to deployment, otherwise you won't se
 
 ## Azure Deployment
 
-In the `/server/scripts` directory you'll see two script files:
+In the `/server/Deployment/Azure` directory you'll see two script files:
 
- - `azure.sh` is the script file that will help you create the resource on Azure that you need. It will also create a...
- - `deploy.sh` file, which will push your site up using a direct zip push.
+ - `app_service.sh` is the script file that will help you create the resource on Azure that you need. It will also create a...
+ - `zip.sh` file, which will push your site up using a direct zip push. This file is generated, but if you need to reproduce it manually, it looks something like this:
 
-In the long term you'll obviously want to use a more structured deployment process, but to just "get something up now" you can run `azure.sh` (assuming you have the Azure CLI `az` and are logged in).
+```sh
+rm ./Deployment/Azure/deploy.zip
+rm -R bin/Release
+dotnet publish --configuration Release
+cd bin/Release/net7.0/publish/
+zip -r ../../../../Deployment/Azure/deploy.zip . -q
+cd -
+az webapp deployment source config-zip --resource-group $RG --name $APPNAME --src ./Deployment/Azure/deploy.zip
+open https://$APPNAME.azurewebsites.net
+echo 'Site's been pushed, watching logs...'
+az webapp log tail -n $APPNAME -g $RG
+```
+
+## Using Make
+
+If you're a CLI person we've created a Makefile for you in the root of the `/server` application. You can use this to spin up your Azure resources using `make app_service` and to deploy your app using just `make`.
+
+In the long term you'll obviously want to use a more structured deployment process and we're currently working on a simple way to "upgrade" to a GitHub based deployment.
+
+## Docker
+
+There is a Dockerfile in the root of the  `/server` app that will build and package everything for you when you need it.
 
 ## Questions? Issues?
 

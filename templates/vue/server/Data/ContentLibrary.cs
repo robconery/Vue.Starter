@@ -18,11 +18,6 @@ public class ContentLibrary
     //The location of the document directory on disk, releative to the root
     public string Library { get; set; }
     
-    public ContentLibrary()
-    {
-      this.Library = "./Content/";
-    }
-    
     //override the default library location
     public ContentLibrary(string library)
     {
