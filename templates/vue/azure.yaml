@@ -2,12 +2,12 @@
 
 name: vue-starter-azd
 services:
-    web:
-        project: ./server
-        language: dotnet
-        host: containerapp
-        module: app/web
-        docker:
-            path: ./Dockerfile
-            context: ..
-            platform: amd64
+  web:
+    project: ./server
+    language: dotnet
+    host: containerapp
+    module: app/web
+    docker:
+      path: ../Dockerfile
+      context: ..
+      platform: amd64
