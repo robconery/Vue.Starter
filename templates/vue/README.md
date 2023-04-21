@@ -68,14 +68,20 @@ It's important that this step is run prior to deployment, otherwise you won't se
 
 ## Azure Deployment
 
-In the `/server/scripts` directory you'll see two script files:
+The template contains the scripts to deploy using the [Azure Developer CLI (`azd`)](https://aka.ms/azd) and can be run using:
 
- - `azure.sh` is the script file that will help you create the resource on Azure that you need. It will also create a...
- - `deploy.sh` file, which will push your site up using a direct zip push.
+```bash
+azd up
+```
 
-In the long term you'll obviously want to use a more structured deployment process, but to just "get something up now" you can run `azure.sh` (assuming you have the Azure CLI `az` and are logged in).
+In the long term you'll obviously want to use a more structured deployment process, but to just "get something up now" you can run `azd up` (assuming you have the Azure Developer CLI `azd` and are logged in). To generate a GitHub Actions workflow run:
+
+```bash
+azd pipeline config
+```
+
+You can learn how to configure other pipeline options [on the docs](https://learn.microsoft.com/azure/developer/azure-developer-cli/configure-devops-pipeline?tabs=azdo).
 
 ## Questions? Issues?
 
 The [GitHub repo for this template is here](https://github.com/robconery/Vue.Starter). I don't have discussions enabled, but feel free to pop an issue if you like or, better yet, a PR!
-

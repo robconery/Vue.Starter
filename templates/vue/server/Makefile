@@ -1,9 +1,12 @@
-DEPLOY="./Deployment/azure/zip.sh"
-APP_SERVICE="./Deployment/Azure/app_service.sh"
+DEPLOY="azd deploy"
+SETUP="azd provision"
+TEARDOWN="azd down"
 
-zip:
+deploy:
 	source $(DEPLOY)
 
-app_service:
-	source $(APP_SERVICE)
+setup:
+	source $(SETUP)
 
+teardown:
+	source $(TEARDOWN)
