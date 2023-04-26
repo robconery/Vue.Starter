@@ -6,7 +6,7 @@
     <PackageReadmeFile>content/templates/vue/README.md</PackageReadmeFile>
     <PackageIcon>content/templates/vue/icon.png</PackageIcon>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.1.1</PackageVersion>
+    <PackageVersion>1.1.6</PackageVersion>
     <PackageId>Vue.Web.Starter</PackageId>
     <Title>ASP.NET Core with Vue 3</Title>
     <Authors>Rob Conery</Authors>

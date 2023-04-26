@@ -5,7 +5,6 @@ export const useSiteStore = defineStore('site', {
     return {
       topNav: [
         {name: "Home", url: "/"},
-        {name: "GitHub", url: "https://github.com/robconery/Vue.Starter"},
         {name: "About", url: "/about/"},
       ],
       social: [

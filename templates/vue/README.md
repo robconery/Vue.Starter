@@ -94,7 +94,13 @@ In the long term you'll obviously want to use a more structured deployment proce
 
 ## Docker
 
-There is a Dockerfile in the root of the  `/server` app that will build and package everything for you when you need it.
+There is a Dockerfile in the root of the project that will build and package everything for you when you need it. This is _only_ the deployable application, not meant for development. To use it, just...
+
+```sh
+docker build -t Vue.Starter .
+docker run -p 8080:80 Vue.Starter
+# open http://localhost:8080
+```
 
 ## Questions? Issues?
 

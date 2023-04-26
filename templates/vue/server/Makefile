@@ -7,3 +7,4 @@ zip:
 app_service:
 	source $(APP_SERVICE)
 
+.phony: zip app_service

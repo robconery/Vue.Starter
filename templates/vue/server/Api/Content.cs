@@ -13,10 +13,6 @@ public static class Content{
     //you can separate these into their own methods if you need to
     //the / route launches the SPA Proxy so you won't see it
     app.MapGet("api/content/{dir}", (string dir) => {
-
-      //figure out where the content directory is
-
-      // Console.WriteLine("Incoming Request", dir);
       var docs = lib.Documents.Where(d => d.Directory.ToLower() == dir.ToLower());
       return docs;
     });
