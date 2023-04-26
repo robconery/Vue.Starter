@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "dotnet watch --project ./server",
-    "deploy": "source ./scripts/deploy.sh",
-    "postinstall": "cd app && npm install"
+    "deploy": "source ./scripts/deploy.sh"
   },
   "keywords": [],
   "author": "",
