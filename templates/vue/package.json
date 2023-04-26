@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "dotnet watch --project ./server",
     "start": "dotnet run --project ./server"
+    "deploy": "source ./scripts/deploy.sh",
+    "postinstall": "cd app && npm install"
   },
   "keywords": [],
   "author": "",
