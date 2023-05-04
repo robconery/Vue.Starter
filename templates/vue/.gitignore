@@ -471,3 +471,4 @@ $RECYCLE.BIN/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+.azure
