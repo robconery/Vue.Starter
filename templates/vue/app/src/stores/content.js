@@ -20,13 +20,11 @@ export const useContentStore = defineStore('content', {
   actions:{
     async getDocuments(path){
       const endpoint = location.hostname.indexOf("localhost") >=0 ? "http://localhost:8000/api/content" : "/api/content"
-
       try{
         this.documents.length = 0;
         const url = `${endpoint}/${path}`;
         //TODO: Change this for production
         const res = await fetch(url);
-
         const docs = await res.json();
         //keep things reactive
         docs.forEach(d => {
@@ -38,4 +36,4 @@ export const useContentStore = defineStore('content', {
 
     }
   }
-})
+});

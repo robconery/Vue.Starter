@@ -8,21 +8,15 @@ public class ContentTests {
   Document _doc;
   public ContentTests()
   {
-    //let's use an in-memory version of SQLite
-    //HACK: I hate this
     _lib = new ContentLibrary("../../../Tests/Content").Load();
     _doc = _lib.Documents.First();
   }
-
   [Fact]
   public void The_libray_loads_up_docs()
   {
-    
     //there should be one doc in there
     Assert.Equal(_lib.Documents.Count, 1);
-    
   }
-
   [Fact]
   public void The_test_doc_has_html()
   {

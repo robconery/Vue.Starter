@@ -6,24 +6,19 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
-
 namespace Vue.Starter.Data;
 // ...
 // This is a simple in-memory Markdown "server", if you will.
-
 public class ContentLibrary
 {
     public IList<Document> Documents { get; set; } = new List<Document>();
-    
     //The location of the document directory on disk, releative to the root
     public string Library { get; set; }
-    
     //override the default library location
     public ContentLibrary(string library)
     {
       this.Library = library;
     }
-    
     //Only runs a fuzzy wildcard on summary
     public IEnumerable<Document> FuzzySearch(string term){
       if(term.Count() < 3){
@@ -31,11 +26,9 @@ public class ContentLibrary
       }
       return this.Documents.Where(d => d.Summary.ToLower().Contains(term.ToLower()));
     }
-
     //Reads the documents on disk, parses and loads the IList<Document>
     public ContentLibrary Load(){
       var result = new List<Document>();
-
       //HACK: figure out how to make this less hard-codey
       foreach (string file in Directory.EnumerateFiles(this.Library, "*.md", SearchOption.AllDirectories))
       {

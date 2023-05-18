@@ -6,13 +6,9 @@ import Footer from "./components/Nav/Footer.vue";
 
 <template>
   <Head />
-
   <Suspense>
     <RouterView />
   </Suspense>
-  
   <Footer class="mt-24" />
 </template>
 
-<style scoped>
-</style>

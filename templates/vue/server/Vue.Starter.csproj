@@ -18,7 +18,7 @@
   <ItemGroup>
     <Watch 
       Include="**\*.cs;**\*.js;**\*.json;**\*.html;**.*.md"
-      Exclude="node_modules\**\*;wwwroot\**\*;" 
+      Exclude="node_modules\**\*;" 
     />
   </ItemGroup>
   <ItemGroup Condition="'$(Configuration)' != 'Release'">
