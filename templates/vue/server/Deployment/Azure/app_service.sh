@@ -9,6 +9,7 @@ LOCATION="westus"
 RUNTIME="DOTNETCORE:7.0"
 ZIPSCRIPT="./Deployment/Azure/zip.sh"
 ENVFILE="./Deployment/.env"
+LOGSCRIPT="./Deployment/Azure/logs.sh"
 
 #Pricing for Linux Service Plans changes from time to time given the location you choose
 #and parameters of your subscription. You can review the pricing for Linux Service Plans here:
@@ -65,6 +66,9 @@ az webapp log config --application-logging filesystem \
 echo "Adding logs alias to .env. Invoking this will allow you to see the application logs realtime-ish."
 #set an alias for convenience - add to .env
 echo "alias logs='az webapp log tail -n $APPNAME -g $RG'" >> $ENVFILE
+
+echo "az webapp log tail -n $APPNAME -g $RG" > $LOGSCRIPT
+
 
 echo "rm ./Deployment/Azure/deploy.zip" >> $ZIPSCRIPT
 echo "rm -R bin/Release" >> $ZIPSCRIPT

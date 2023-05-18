@@ -1,6 +1,6 @@
 pack:
 	dotnet pack
-
+	
 template_dir:
 	mkdir "templates/vue/.template.config"
 
